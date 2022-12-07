@@ -1,6 +1,6 @@
 //Game constants
 const walk = 200;
-const arrowSpeed = 400;
+const arrowSpeed = 800;
 
 //Initial score is zero
 let score;
@@ -19,25 +19,25 @@ function distance(a, b) {
 function setup(sprites) {
     //Set up the sprites
     sprites[0].image = "🧍‍♂️";
-    sprites[0].x = 15;
-    sprites[0].y = 0;
+    sprites[0].x = 375;
+    sprites[0].y = 100;
 
-    sprites[1].image = "🤠";
-    sprites[1].x = 3;
-    sprites[1].y = 35;
-
-    sprites[2].image = ")";
-    sprites[2].x = 40;
+    sprites[2].image = "🥍";
+    sprites[2].x = 10;
     sprites[2].y = 20;
     sprites[2].color = "#8E562E";
 
-    sprites[3].image = "➵";
+    sprites[3].image = "";
     sprites[3].x = -100;
     sprites[3].y = -100;
 
-    sprites[4].image = "🦌";
-    sprites[4].x = 500;
-    sprites[4].y = 300;
+    sprites[4].image = "🥅";
+    sprites[4].x = 375;
+    sprites[4].y = 440;
+
+    sprites[5].image = "🥅";
+    sprites[5].x = 375;
+    sprites[5].y = 20;
 
     vArrow = false;
     score = 0;
@@ -96,7 +96,7 @@ function frame(sprites, t, dt, up, down, left, right, space) {
     if (bow.flipH) {
         bow.x = hunter.x - 20;
     } else {
-        bow.x = hunter.x + 40;
+        bow.x = hunter.x + 20;
     }
 
     //If the arrow is not moving...
@@ -140,7 +140,7 @@ function frame(sprites, t, dt, up, down, left, right, space) {
             //When the hunter touches the meat, give points..
             score++;
             //And make it back into a deer
-            buck.image = "🦌";
+            buck.image = "🥅";
             buck.x = 780 * Math.random();
             buck.y = 470 * Math.random();
         }

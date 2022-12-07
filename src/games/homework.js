@@ -23,7 +23,7 @@ function setup(sprites) {
     //But you can use emojis!
     // https://emojis.wiki/
 
-    sprites[0].image = "🚒"; //A fire engine
+    sprites[0].image = "🧍‍♂️"; //A fire engine
     sprites[0].x = 100;
     sprites[0].y = 100;
 
