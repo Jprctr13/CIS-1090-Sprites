@@ -2,7 +2,7 @@
 //what is happening:
 let score;  //The players score
 let alive;  //is the 
-const walk = 330;
+const walk = 360;
 
 //You might have some constants that you use
 //In pixels per second
@@ -50,7 +50,7 @@ function setup(sprites) {
  * @returns The current score
  */
 
-let speed = 300;
+let speed = 330;
 const gravity = 450;
 
 function frame(sprites, t, dt, up, down, left, right, space) {
@@ -62,17 +62,19 @@ function frame(sprites, t, dt, up, down, left, right, space) {
 
     if (sprites[2].y <= 0) {
         ball.y = 450;
-        speed = 300;
+        speed = 330;
         ball.x = Math.random() * 750;
     }
 
+    if (distance(ball, glove) <= 20){
+        ball.y = 450;
+        speed = 330;
+        ball.x = Math.random() * 750;
+        score++
+    }
 
     //move glove
-    if (up) {
-        glove.y += walk * dt;
-    } if (down) {
-        glove.y -= walk * dt;
-    }
+
     if (right) {
         glove.x += walk * dt;
     }
@@ -82,7 +84,7 @@ function frame(sprites, t, dt, up, down, left, right, space) {
 
     //A very simple repeating animation
     sprites[2].y += Math.sin(t) / 10;
-    
+
 
     return score;
 }
@@ -90,11 +92,11 @@ function frame(sprites, t, dt, up, down, left, right, space) {
 
 export default {
     name: "Homework",
-    instructions: "Write your instructions here",
+    instructions: "Catch the Balls!",
     icon: "📝", //Choose an emoji icon
     background: {
         //You can put CSS here to change your background
-        "background-color": "#140"
+        "background-color": "#155"
     },
     frame,
     setup,
