@@ -2,6 +2,7 @@
 //what is happening:
 let score;  //The players score
 let alive;  //is the 
+const walk = 330;
 
 //You might have some constants that you use
 //In pixels per second
@@ -28,12 +29,13 @@ function setup(sprites) {
     //can make more complicated things.
     sprites[1].image = "🧤"; //A fire engine
     sprites[1].x = 300;
-    sprites[1].y = 100;
+    sprites[1].y = 25;
     sprites[2].image = "⚾"; //A fire engine
     sprites[2].x = 300;
     sprites[2].y = 500;
 
 }
+
 
 /**
  * This function is called every frame
@@ -48,42 +50,43 @@ function setup(sprites) {
  * @returns The current score
  */
 
-let speed = 150;
+let speed = 300;
 const gravity = 450;
 
-function frame(sprites, t, dt, up, down, left, right, space){ {
+function frame(sprites, t, dt, up, down, left, right, space) {
 
+    const glove = sprites[1];
     const ball = sprites[2];
-    
+
     sprites[2].y = sprites[2].y - dt * speed;
-    
-    if (sprites[2].y <= 0){
+
+    if (sprites[2].y <= 0) {
         ball.y = 450;
-        speed = 150;
-        ball.x = math.random() * 750;
+        speed = 300;
+        ball.x = Math.random() * 750;
     }
 
 
-    return 0;
-}
-//move glove
-if (up) {
-    glove.y += walk * dt;
-} if (down) {
-    glove.y -= walk * dt;
-}
-if (right) {
-    glove.x += walk * dt;
-}
-if (left) {
-    glove.x -= walk * dt;
-}
-   
+    //move glove
+    if (up) {
+        glove.y += walk * dt;
+    } if (down) {
+        glove.y -= walk * dt;
+    }
+    if (right) {
+        glove.x += walk * dt;
+    }
+    if (left) {
+        glove.x -= walk * dt;
+    }
+
     //A very simple repeating animation
-    sprites[2].y += Math.sin(t)/10;
+    sprites[2].y += Math.sin(t) / 10;
+    
 
     return score;
-};
+}
+
 
 export default {
     name: "Homework",
@@ -91,7 +94,7 @@ export default {
     icon: "📝", //Choose an emoji icon
     background: {
         //You can put CSS here to change your background
-        "background-color": "#555"
+        "background-color": "#140"
     },
     frame,
     setup,
